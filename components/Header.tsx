@@ -1,10 +1,11 @@
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const Header = ({ children }: HeaderProps) => {
+const Header = ({ children, className }: HeaderProps) => {
   return (
-    <div className="header mt-3">
+    <div className={cn(`header mt-3`, className)}>
       <Link href="/" className="md:flex-1">
         <Image
           src="/assets/images/logo.png"

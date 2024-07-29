@@ -2,9 +2,9 @@ import CollabrativeRoom from "@/components/CollabrativeRoom";
 
 const Document = () => {
   return (
-    <div>
+    <main>
       <CollabrativeRoom />
-    </div>
+    </main>
   );
 };
 
