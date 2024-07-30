@@ -3,30 +3,33 @@ import { ClientSideSuspense, RoomProvider } from "@liveblocks/react/suspense";
 import { Editor } from "@/components/editor/Editor";
 import Header from "@/components/Header";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
-import Loader from "./loader";
+import Loader from "./Loader";
+import ActiveCollabrators from "./ActiveCollabrators";
 
-const CollabrativeRoom = () => {
+// const CollabrativeRoom = () => {
+const CollabrativeRoom = ({ roomId, roomMetadata }: CollaborativeRoomProps) => {
   return (
-    <div>
-      <RoomProvider id="my-room">
-        <ClientSideSuspense fallback={<Loader />}>
-          <div className="collabrative-room">
-            <Header>
-              <div className="flex w-fit items-center justify-center gap-2">
-                <p className="document-title">Share</p>
-              </div>
+    <RoomProvider id={roomId}>
+      <ClientSideSuspense fallback={<Loader />}>
+        <div className="collabrative-room">
+          <Header>
+            <div className="flex w-fit items-center justify-center gap-2">
+              <p className="document-title">Share</p>
+            </div>
+            <div className="flex w-full flex-1 justify-end gap-2 sm:gap-3">
+              <ActiveCollabrators />
               <SignedOut>
                 <SignInButton />
               </SignedOut>
               <SignedIn>
                 <UserButton />
               </SignedIn>
-            </Header>
-            <Editor />
-          </div>
-        </ClientSideSuspense>
-      </RoomProvider>
-    </div>
+            </div>
+          </Header>
+          <Editor />
+        </div>
+      </ClientSideSuspense>
+    </RoomProvider>
   );
 };
 
