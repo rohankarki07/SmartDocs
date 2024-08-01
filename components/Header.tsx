@@ -15,7 +15,7 @@ const Header = ({ children, className }: HeaderProps) => {
           className="hidden md:block"
         />
         <Image
-          src="/assets/icons/logo.png"
+          src="/assets/images/logo.png"
           alt="SmartDocs noName"
           width={32}
           height={32}

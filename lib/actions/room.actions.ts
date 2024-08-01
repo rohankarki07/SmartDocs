@@ -103,6 +103,7 @@ export const updateDocumentAccess = async ({
     if (room) {
       const notificationId = nanoid();
 
+      //custome notification
       await liveblocks.triggerInboxNotification({
         userId: email,
         kind: "$documentAccess",
